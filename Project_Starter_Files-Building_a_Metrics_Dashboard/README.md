@@ -4,6 +4,19 @@
 
 *TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
 
+-Default Namespace :
+
+![running k8s pods in default namespace](https://user-images.githubusercontent.com/88302867/231969936-63a94f7f-136a-4c81-b40e-80073f2a191d.PNG)
+
+-Monitoring Namespace :
+
+![running k8s pods in monitoring namespace](https://user-images.githubusercontent.com/88302867/231970097-95e7dd12-c90e-4e7d-93bc-754ee81cbdbd.PNG)
+
+-Observability Namespace :
+
+![running k8s pods in obervability namespace](https://user-images.githubusercontent.com/88302867/231970196-d43441f2-a2c0-46d7-b7e4-60dfdf9ca596.PNG)
+
+
 ## Setup the Jaeger and Prometheus source
 *TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
 
