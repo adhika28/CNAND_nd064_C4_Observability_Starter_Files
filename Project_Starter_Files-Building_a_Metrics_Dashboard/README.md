@@ -33,8 +33,21 @@
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
 
+-SLI based on *monthly uptime* :
+ The avarage uptime service during month of April was 98.65%
+
+-SLI based on *request response time* :
+ The average time taken to return a request during the month of April was 156 ms.
+
 ## Creating SLI metrics.
 *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+
+1. **Service Availabilty** This metric is to help indicate the up time service during certain of time
+2. **CPU and Memory Usage** This metric is to address whether hte services have a performance issue and to monitor the utilization so we can prepare for the scaling.
+3. **Error Rate** This metric is to measures the number of failures that occur during a given period 
+4. **Response Time** This metric is to measure the latency of the services
+5. **Throughput** This metric is to monitor and measure the number of load that a services can handle
+
 
 ## Create a Dashboard to measure our SLIs
 *TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
