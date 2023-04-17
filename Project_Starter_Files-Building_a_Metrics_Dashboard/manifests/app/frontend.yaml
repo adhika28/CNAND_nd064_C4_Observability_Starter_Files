@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: lutfieff/frontend-app-dashboard:v2.0
+          image: adhika28/frontend-app:v1
           imagePullPolicy: Always
           ports:
             - name: frontendport

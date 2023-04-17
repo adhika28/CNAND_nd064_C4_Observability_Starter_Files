@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: trial
-          image: lutfieff/trial-app-dashboard:v2.0
+          image: adhika28/trial-app:v1
           imagePullPolicy: Always
           ports:
             - name: trialport
