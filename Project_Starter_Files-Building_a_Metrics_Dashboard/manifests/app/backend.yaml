@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-app
-  labels: 
+  name: backend
+  labels:
     app: backend
-  annotations: 
-    "sidecar.jaegertracing.io/inject": "true" 
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
 spec:
   replicas: 3
   selector:
@@ -17,23 +17,18 @@ spec:
         app: backend
     spec:
       containers:
-      - env:
-        - name: JAEGER_AGENT_HOST
-          value: simplest-agent.observability.svc.cluster.local
-        image: catzzzlol/backend:latest
-        imagePullPolicy: Always
-        name: backend
-        ports:
-        - containerPort: 8080
-      restartPolicy: Always
+        - name: backend
+          image: lutfieff/backend-app-dashboard:v2.0
+          imagePullPolicy: Always
+          ports:
+            - name: backendport
+              containerPort: 8080
+              protocol: TCP
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    prometheus.io/port: "9090"
-    prometheus.io/scrape: "true"
-  name: backend-service
+  name: backend
   labels:
     app: backend
 spec:
@@ -41,26 +36,32 @@ spec:
     app: backend
   ports:
     - name: backend
+      protocol: TCP
       port: 8081
-      targetPort: 8080
+      targetPort: backendport
   type: LoadBalancer
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: backend
-  namespace: monitoring
+  annotations:
+    sidecar.jaegertracing.io/inject: "true"
+    prometheus.io/scrape: "true"
+    prometheus.io/path: /metrics
+    prometheus.io/port: backend
   labels:
     app: backend
     release: prometheus
+  name: backend
+  namespace: monitoring
 spec:
+  endpoints:
+    - path: /metrics
+      port: backend
+      interval: 15s
+  namespaceSelector:
+    matchNames:
+      - default
   selector:
     matchLabels:
       app: backend
-  endpoints:
-  - port: backend
-    path: /metrics
-    interval: 15s
-  namespaceSelector:
-    matchNames:
-    - default

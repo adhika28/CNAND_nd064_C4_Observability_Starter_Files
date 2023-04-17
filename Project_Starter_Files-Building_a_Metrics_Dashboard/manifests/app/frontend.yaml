@@ -1,11 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-app
+  name: frontend
+  labels:
+    app: frontend
   annotations:
     "sidecar.jaegertracing.io/inject": "true"
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: frontend
@@ -15,26 +17,19 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        image: zub1984/frontend:latest
-        imagePullPolicy: Always
-        env:
-        - name: BACKEND_ENDPOINT
-          value: "http://backend-service.default.svc.cluster.local:8081"
-        ports:
-        - name: frontendport
-          containerPort: 8080
-          protocol: TCP
-      restartPolicy: Always
+        - name: frontend
+          image: lutfieff/frontend-app-dashboard:v2.0
+          imagePullPolicy: Always
+          ports:
+            - name: frontendport
+              containerPort: 8080
+              protocol: TCP
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    prometheus.io/port: "9090"
-    prometheus.io/scrape: "true"
-  name: frontend-service
+  name: frontend
   labels:
     app: frontend
 spec:
@@ -42,26 +37,32 @@ spec:
     app: frontend
   ports:
     - name: frontend
-      port: 8082
-      targetPort: 8080
+      protocol: TCP
+      port: 8080
+      targetPort: frontendport
   type: LoadBalancer
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: frontend
-  namespace: monitoring
+  annotations:
+    sidecar.jaegertracing.io/inject: "true"
+    prometheus.io/scrape: "true"
+    prometheus.io/path: /metrics
+    prometheus.io/port: frontend
   labels:
     app: frontend
     release: prometheus
+  name: frontend
+  namespace: monitoring
 spec:
+  endpoints:
+    - path: /metrics
+      port: frontend
+      interval: 15s
+  namespaceSelector:
+    matchNames:
+      - default
   selector:
     matchLabels:
       app: frontend
-  endpoints:
-  - port: frontend
-    path: /metrics
-    interval: 15s
-  namespaceSelector:
-    matchNames:
-    - default
