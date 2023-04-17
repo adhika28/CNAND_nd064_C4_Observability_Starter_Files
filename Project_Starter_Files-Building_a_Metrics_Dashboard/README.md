@@ -59,6 +59,13 @@
 ## Tracing our Flask App
 *TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
 
+Jaeger UI 
+![JaegerUI](https://user-images.githubusercontent.com/88302867/232369771-f395fe34-1086-42fb-8e56-52def856b75a.PNG)
+
+Backend app span:
+![span backendapp](https://user-images.githubusercontent.com/88302867/232370784-169e69c7-c50a-4275-82b6-52545f2e4081.PNG)
+
+
 ## Jaeger in Dashboards
 *TODO:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
 
