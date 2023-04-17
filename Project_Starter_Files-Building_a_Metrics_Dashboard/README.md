@@ -14,7 +14,8 @@
 
 -Observability Namespace :
 
-![running k8s pods in obervability namespace](https://user-images.githubusercontent.com/88302867/231970196-d43441f2-a2c0-46d7-b7e4-60dfdf9ca596.PNG)
+![running k8s pods in obervability namespace](https://user-images.githubusercontent.com/88302867/232361625-7c6a26c2-f46b-4b83-8ae7-bcf75eb39363.PNG)
+
 
 
 ## Setup the Jaeger and Prometheus source
