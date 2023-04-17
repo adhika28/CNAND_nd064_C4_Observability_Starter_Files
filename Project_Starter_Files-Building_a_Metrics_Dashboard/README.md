@@ -34,10 +34,10 @@
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
 
--SLI based on *monthly uptime* :
+-SLI based on ***monthly uptime*** :
  The avarage uptime service during month of April was 98.65%
 
--SLI based on *request response time* :
+-SLI based on ***request response time*** :
  The average time taken to return a request during the month of April was 156 ms.
 
 ## Creating SLI metrics.
@@ -60,31 +60,38 @@
 *TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
 
 Jaeger UI 
+
 ![JaegerUI](https://user-images.githubusercontent.com/88302867/232369771-f395fe34-1086-42fb-8e56-52def856b75a.PNG)
 
 Backend app span:
+
 ![span backendapp](https://user-images.githubusercontent.com/88302867/232370784-169e69c7-c50a-4275-82b6-52545f2e4081.PNG)
 
 
 ## Jaeger in Dashboards
 *TODO:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
 
+![Jaeger Dashboard](https://user-images.githubusercontent.com/88302867/232376469-d99a90dd-d8e7-42bf-8710-ec05cdeac78a.PNG)
+
+
 ## Report Error
 *TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
 
 TROUBLE TICKET
 
-Name:
+Name: Error on "./reference-app/trial/app.py"
 
-Date:
+Date: 16 April 2023 
 
-Subject:
+Subject: Json decode error
 
-Affected Area:
+Affected Area: Trial app
 
-Severity:
+Severity: High
 
-Description:
+Description: When make a call to trace api of Trial app, curl http://10.0.2.15:8082/trace, one Json Decode Error
+
+![span error](https://user-images.githubusercontent.com/88302867/232377217-a00ee6cd-9561-4e36-b85f-433229197dd5.PNG)
 
 
 ## Creating SLIs and SLOs
