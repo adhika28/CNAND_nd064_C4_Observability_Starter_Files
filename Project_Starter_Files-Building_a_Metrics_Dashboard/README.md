@@ -112,5 +112,39 @@ Description: When make a call to trace api of Trial app, curl http://10.0.2.15:8
 ## Building KPIs for our plan
 *TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
 
+**1. Less than 10 error in 24 Hours**
+
+     Error requests per minute indicates error coming in a system. So we can detect the error early
+     
+**2. Average response time is less than 2000ms in 24 Hours**
+
+     Average response time will show average response time for services, so we can make sure that no any performance issue accessing the app
+     
+**3. Successful response > 75% more than errors**
+
+     More successful response means our app is in healthy state
+     
+**4. Monthly Average Resource Utilization (CPU and Memory) is less than 85%**
+
+     To prevent from systems degrade in performance 
+     
 ## Final Dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+
+![Application Dashboard](https://user-images.githubusercontent.com/88302867/232380187-a12f8163-25c2-46e7-b2b1-c1b712bb2a6c.PNG)
+
+Application stats -> Show available app service
+
+Successful requests -> Show total succesful request per app
+
+Error requests - Shows the total 40x and 50x error requests per service
+
+Average response time - Shows the average response time successful requests per service
+
+Average memory - Shows the average memory used per service
+
+Average CPU used - Shows the average CPU used per service
+
+Network I/O - Shows the amount of I/O operations per minute in the nod
+
+
