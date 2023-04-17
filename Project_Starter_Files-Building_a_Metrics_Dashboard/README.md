@@ -97,6 +97,18 @@ Description: When make a call to trace api of Trial app, curl http://10.0.2.15:8
 ## Creating SLIs and SLOs
 *TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
 
+**SLI**
+1. Error rate is less than 10 in 24 hours
+2. Response time is less than 2000ms per minute
+3. 75% more successful responses than errors
+4. The average CPU and Memory utilization resource is less than 75% per month
+
+**SLO**
+1. 99.9% uptime per month
+2. 99.9% of responses to our front-service will return 2xx, 3xx or 4xx HTTP code within 2000 ms
+3. 99.99% of transaction requests will succeed in a month
+4. The CPU usage and memory usage should be less than 85% for last 30 days
+
 ## Building KPIs for our plan
 *TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
 
