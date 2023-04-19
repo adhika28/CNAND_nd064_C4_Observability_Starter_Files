@@ -61,7 +61,8 @@
 
 Jaeger UI 
 
-![JaegerUI](https://user-images.githubusercontent.com/88302867/232369771-f395fe34-1086-42fb-8e56-52def856b75a.PNG)
+![JaegerUI](https://user-images.githubusercontent.com/88302867/232944587-41b66cf8-27b2-4ca0-98cd-1998174c0313.PNG)
+
 
 Backend app span:
 
@@ -79,19 +80,20 @@ Backend app span:
 
 TROUBLE TICKET
 
-Name: Error on "./reference-app/trial/app.py"
+Name: Putu A
 
-Date: 16 April 2023 
+Date: 19 April 2023 08:59:37
 
-Subject: Json decode error
+Subject: Error 404 when accessing homepage button
 
-Affected Area: Trial app
+Affected Area: APi call
 
 Severity: High
 
-Description: When make a call to trace api of Trial app, curl http://10.0.2.15:8082/trace, one Json Decode Error
+Description: when hit button (localhost:8080/favicon.ico), page can not be found
 
-![span error](https://user-images.githubusercontent.com/88302867/232377217-a00ee6cd-9561-4e36-b85f-433229197dd5.PNG)
+![span error](https://user-images.githubusercontent.com/88302867/232948069-29a53a64-7145-4594-8d18-984612ea4758.PNG)
+
 
 
 ## Creating SLIs and SLOs
