@@ -61,7 +61,8 @@
 
 Jaeger UI 
 
-![JaegerUI](https://user-images.githubusercontent.com/88302867/232369771-f395fe34-1086-42fb-8e56-52def856b75a.PNG)
+![JaegerUI](https://user-images.githubusercontent.com/88302867/232944587-41b66cf8-27b2-4ca0-98cd-1998174c0313.PNG)
+
 
 Backend app span:
 
